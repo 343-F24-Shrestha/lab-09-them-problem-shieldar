@@ -62,7 +62,7 @@ function toggleLoader(subject) {
     // FIXME: notice above that getThemProblem just returns a literal.
     // you should update the code below to instead call getThemProblem.
     // getThemProblem expects a string parameter (the only valid strings are those returned by getOptions), and returns a promise that resolves to a string.
-    getThemProblems(you).then(they => {
+    getThemProblem(you).then(they => {
     const output = document.getElementById('they');
     output.textContent = they;
     });
