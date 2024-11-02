@@ -42,11 +42,12 @@ function toggleLoader(subject) {
   }
 
   function init(ev) {
-  
+    toggleLoader('you');
     // FIXME: notice above that getYous just returns a literal.
     // you should update the code below to instead call getOptions.
     // getOptions expects no arguments, and returns a promise that resolves to an array of strings.
     getOptions().then(options => {
+    toggleLoader('you');
     updateRadio(options);
   
     document.querySelectorAll("input[type='radio']").forEach((input) => {
@@ -56,6 +57,7 @@ function toggleLoader(subject) {
   }
   
   function changed(ev) {
+    toggleLoader('they');
     console.debug('fyi, this is what a change event looks like', ev)
     const you = ev.target.parentElement.textContent
   
@@ -63,6 +65,7 @@ function toggleLoader(subject) {
     // you should update the code below to instead call getThemProblem.
     // getThemProblem expects a string parameter (the only valid strings are those returned by getOptions), and returns a promise that resolves to a string.
     getThemProblem(you).then(they => {
+    toggleLoader('they');
     const output = document.getElementById('they');
     output.textContent = they;
     });
